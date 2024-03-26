@@ -1,7 +1,19 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 # Events Workflow running push,pull_request,fork
-on: [push,pull_request,fork]
+on: 
+  push:
+    branches-ignore:
+      - dev
+      - 'origin/dev'
+  pull_request:
+    branches-ignore:
+      - dev
+      - 'origin/dev'
+  fork:
+    branches-ignore:
+      - dev
+      - 'origin/dev'
 
 jobs:
   build:
