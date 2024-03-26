@@ -1,0 +1,15 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+# Events Workflow running push,pull_request,fork
+on: [push,pull_request,fork]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Print Message
+        run: echo "Hello, Multiple Events!"
