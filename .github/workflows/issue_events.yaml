@@ -11,4 +11,18 @@ jobs:
       - name: "Print Github Events"
         run: echo '${{toJSON(github.event)}}' | jq
         shell: bash
-        
+
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: 1
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
