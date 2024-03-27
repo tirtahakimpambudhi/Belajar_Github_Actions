@@ -1,4 +1,5 @@
 name: Schedule Events GitHub Actions
+run-name: Schedule Events GitHub Actions
 on:
   schedule:
     # <minute> <hour> <day of month> <month> <day of week>
