@@ -3,6 +3,7 @@ on:
   schedule:
   # <minute> <hour> <day of month> <month> <day of week>
     - cron: '30 7,19 * * *' # Menjadwalkan tindakan pada menit ke-1 setiap jam pada pukul 07:01 dan 19:01 (waktu UTC)
+    - cron: '10 7,19 * * *'
 
 jobs:
   schedule_print:
