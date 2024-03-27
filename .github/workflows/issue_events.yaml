@@ -1,0 +1,14 @@
+name: Learn Issue Events GitHub Actions
+on:
+  issues:
+    types: [opened]
+
+
+jobs:
+  print-event-attribute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print Github Events"
+        run: echo '${{toJSON(github.event)}}' | jq
+        shell: bash
+        
