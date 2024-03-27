@@ -17,14 +17,15 @@ jobs:
     steps:
       - name: Create comment using GitHub CLI
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.repository.owner.login }}
           REPOSITORY: ${{ github.event.repository.name }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }} # Use the issue number from the event
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
           COMMENT_BODY: |
             This is a test comment.
             You can add multiple lines.
             Markdown is supported.
         run: |
+          gh auth login --with-token <<< "${GH_TOKEN}"
           gh api repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
             -f body="${COMMENT_BODY}"
