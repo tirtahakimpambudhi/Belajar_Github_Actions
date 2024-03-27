@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: Create comment using GitHub CLI
         env:
+          GH_TOKEN: ${{ github.token }}
           ORGANIZATION: ${{ github.event.repository.owner.login }}
           REPOSITORY: ${{ github.event.repository.name }}
           ISSUE_NUMBER: ${{ github.event.issue.number }} # Use the issue number from the event
