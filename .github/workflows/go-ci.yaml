@@ -22,4 +22,4 @@ jobs:
           PG_DB_NAME: postgres
         run: |
           go mod tidy
-          go test
+          go test test/DBConnection_test.go

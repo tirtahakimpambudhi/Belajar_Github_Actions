@@ -38,6 +38,7 @@ import (
 //}
 
 func TestDBEnv(t *testing.T) {
+	// test cases for testing case
 	testCases := []struct {
 		name        string
 		env         string
@@ -51,6 +52,7 @@ func TestDBEnv(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
+		// run testing every testCase
 		t.Run(testCase.name, func(t *testing.T) {
 			require.Equal(t, testCase.expectedEnv, testCase.env)
 		})
