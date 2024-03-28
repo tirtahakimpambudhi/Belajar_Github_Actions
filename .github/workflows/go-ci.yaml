@@ -29,16 +29,16 @@ jobs:
       - run: go version
 
       - name: Setup Environment
+        run: |
+          go mod tidy
+          go get github.com/lib/pq
+      - name: TDD
         env:
           PG_DB_HOST: localhost
           PG_DB_PORT: 5432
           PG_DB_USER: postgres
           PG_DB_PASSWORD: postgres
           PG_DB_NAME: postgres
-        run: |
-          go mod tidy
-          go get github.com/lib/pq
-      - name: TDD
         run: |
           go test test/DBConnection_test.go
         shell: bash
