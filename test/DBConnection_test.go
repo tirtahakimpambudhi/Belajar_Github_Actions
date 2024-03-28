@@ -64,3 +64,10 @@ func TestDBEnv(t *testing.T) {
 		})
 	}
 }
+
+func TestDBConnection(t *testing.T) {
+	config := NewDBConfig(os.Getenv("PG_DB_HOST"), os.Getenv("PG_DB_PORT"), os.Getenv("PG_DB_USER"), os.Getenv("PG_DB_PASSWORD"), os.Getenv("PG_DB_NAME"))
+	store, err := PGStore(config)
+	require.NoError(t, err)
+	fmt.Println(store.Config)
+}
