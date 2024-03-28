@@ -38,4 +38,7 @@ jobs:
         run: |
           go mod tidy
           go get github.com/lib/pq
+      - name: TDD
+        run: |
           go test test/DBConnection_test.go
+        shell: bash
