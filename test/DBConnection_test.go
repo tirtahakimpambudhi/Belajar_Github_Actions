@@ -1,6 +1,7 @@
 package test
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/require"
 	"os"
 	"testing"
@@ -54,6 +55,7 @@ func TestDBEnv(t *testing.T) {
 	for _, testCase := range testCases {
 		// run testing every testCase
 		t.Run(testCase.name, func(t *testing.T) {
+			fmt.Println(testCase.env)
 			require.Equal(t, testCase.expectedEnv, testCase.env)
 		})
 	}
